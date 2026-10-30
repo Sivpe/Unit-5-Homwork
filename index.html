@@ -1,0 +1,642 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" href="data:," />
+    <title>Past Simple &amp; Present Perfect Homework</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet" />
+    <style>
+      :root{
+        --bg:#fdf6ec; --card:#ffffff; --ink:#22303a; --ink-soft:#5a6b76;
+        --teal:#0e7c6f; --teal-dark:#0a5f55; --teal-soft:#e2f3ef;
+        --orange:#e8730c; --orange-soft:#fdeeda;
+        --line:#e8dcc8; --field:#fffdf8;
+        --good:#1d8a4e; --good-bg:#e5f6ec; --bad:#c62f3b; --bad-bg:#fdecec;
+        --warn-bg:#fff3d6; --warn-line:#e3b93c; --warn-ink:#6d5410;
+        --shadow:0 4px 18px rgba(60,40,10,.10);
+        color-scheme:light;
+      }
+      @media (prefers-color-scheme: dark){
+        :root{
+          --bg:#17201f; --card:#22302e; --ink:#eef4f1; --ink-soft:#a9bcb5;
+          --teal:#2fbfa9; --teal-dark:#7fe0cf; --teal-soft:#1d3a36;
+          --orange:#f59d4c; --orange-soft:#3d2c17;
+          --line:#3a4a46; --field:#1b2926;
+          --good:#5fd598; --good-bg:#17382a; --bad:#ff8a93; --bad-bg:#3d1f24;
+          --warn-bg:#3a2f14; --warn-line:#a9832f; --warn-ink:#f0d48a;
+          --shadow:0 4px 18px rgba(0,0,0,.4);
+          color-scheme:dark;
+        }
+      }
+      *{ box-sizing:border-box; }
+      html{ scroll-behavior:smooth; }
+      @media (prefers-reduced-motion: reduce){ html{ scroll-behavior:auto; } }
+      body{ margin:0; background:var(--bg); color:var(--ink);
+        font-family:"Nunito",system-ui,-apple-system,"Segoe UI",sans-serif;
+        font-size:17px; line-height:1.5; }
+      h1,h2,h3{ font-family:"Baloo 2","Nunito",sans-serif; line-height:1.15; margin:0; }
+      .wrap{ max-width:860px; margin:0 auto; padding:20px 16px 40px; }
+      .hidden{ display:none !important; }
+
+      /* ---------- intro ---------- */
+      .hero{ background:var(--card); border:2px solid var(--line); border-radius:20px;
+        padding:26px 24px; box-shadow:var(--shadow); }
+      .unit-tag{ display:inline-block; background:var(--teal-soft); color:var(--teal-dark);
+        font-weight:800; font-size:.82rem; letter-spacing:.04em; padding:4px 12px;
+        border-radius:999px; margin-bottom:12px; }
+      .hero h1{ font-size:2rem; margin-bottom:8px; }
+      .hero .lede{ color:var(--ink-soft); margin:0 0 18px; font-size:1.02rem; }
+      .hero .lede b{ color:var(--ink); }
+      .stats{ display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin:0 0 20px; }
+      .stat{ background:var(--teal-soft); border-radius:14px; padding:10px 6px; text-align:center; }
+      .stat b{ display:block; font-family:"Baloo 2",sans-serif; font-size:1.5rem; color:var(--teal-dark); line-height:1.1; }
+      .stat span{ font-size:.8rem; font-weight:700; color:var(--ink-soft); }
+      .name-field label{ display:block; font-weight:800; margin-bottom:6px; }
+      .name-field input{ width:100%; font:inherit; font-size:1.1rem; padding:13px 14px;
+        border:2px solid var(--line); border-radius:12px; background:var(--field); color:var(--ink); }
+      .name-field input:focus{ outline:3px solid var(--teal-soft); border-color:var(--teal); }
+      .name-hint{ color:var(--ink-soft); font-size:.9rem; margin:8px 0 16px; }
+      .name-error{ color:var(--bad); font-weight:700; font-size:.92rem; margin:6px 0 0; }
+      .howto{ background:var(--orange-soft); border:2px solid var(--line); border-radius:14px;
+        padding:14px 16px; margin:18px 0; }
+      .howto h2{ font-size:1.15rem; margin-bottom:6px; }
+      .howto p{ margin:4px 0; }
+      .parts-list{ margin:0 0 20px; padding-left:22px; color:var(--ink-soft); font-weight:600; }
+      .parts-list li{ margin:3px 0; }
+      .parts-list b{ color:var(--ink); }
+      .btn{ font:inherit; font-weight:800; border:0; border-radius:12px; cursor:pointer;
+        padding:14px 22px; min-height:52px; }
+      .btn.primary{ background:var(--teal); color:#fff; font-size:1.08rem; width:100%; }
+      .btn.primary:disabled{ background:var(--line); color:var(--ink-soft); cursor:not-allowed; }
+      .btn.primary:not(:disabled):hover{ background:var(--teal-dark); }
+      .btn.secondary{ background:var(--card); color:var(--teal-dark); border:2px solid var(--teal); }
+      .btn.small{ padding:9px 16px; min-height:44px; font-size:.95rem; }
+
+      /* ---------- sticky quiz bar ---------- */
+      .quizbar{ position:sticky; top:0; z-index:20; background:var(--card);
+        border-bottom:2px solid var(--line); box-shadow:0 3px 10px rgba(0,0,0,.06); }
+      .quizbar-in{ max-width:860px; margin:0 auto; padding:10px 16px;
+        display:flex; align-items:center; gap:14px; flex-wrap:wrap; }
+      .qb-name{ font-weight:800; min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+      .qb-name span{ color:var(--ink-soft); font-weight:600; font-size:.85rem; display:block; line-height:1.1; }
+      .qb-timer{ margin-left:auto; font-family:"Baloo 2",sans-serif; font-size:1.6rem; font-weight:800;
+        background:var(--teal-soft); color:var(--teal-dark); border-radius:12px; padding:2px 14px;
+        font-variant-numeric:tabular-nums; }
+      .qb-timer.low{ background:var(--bad-bg); color:var(--bad); }
+      .qb-progress{ font-weight:800; color:var(--ink-soft); font-size:.95rem; }
+      .qb-progress b{ color:var(--ink); }
+      .pbar{ height:8px; background:var(--line); border-radius:99px; overflow:hidden; }
+      .pbar i{ display:block; height:100%; background:var(--teal); width:0%; transition:width .25s; }
+
+      /* ---------- parts & questions ---------- */
+      .part{ background:var(--card); border:2px solid var(--line); border-radius:20px;
+        padding:22px; margin:20px 0; box-shadow:var(--shadow); }
+      .part-head{ display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; margin-bottom:10px; }
+      .part-head h2{ font-size:1.45rem; }
+      .part-pts{ background:var(--orange-soft); color:var(--orange); font-weight:800;
+        font-size:.85rem; padding:3px 10px; border-radius:999px; }
+      .instruction{ background:var(--teal-soft); border-radius:12px; padding:12px 14px;
+        margin:0 0 18px; font-size:.98rem; }
+      .instruction b{ color:var(--teal-dark); }
+      .q{ padding:14px 0; border-top:1.5px dashed var(--line); }
+      .q:first-of-type{ border-top:0; }
+      .q.gap{ background:var(--warn-bg); border-radius:12px; padding:14px 12px; }
+      .q-text{ font-weight:700; font-size:1.06rem; margin:0 0 10px; }
+      .q-num{ display:inline-block; background:var(--teal); color:#fff; font-weight:800;
+        border-radius:8px; padding:0 8px; margin-right:8px; font-size:.9rem; }
+      .opts{ display:grid; gap:9px; }
+      .opt{ display:flex; align-items:center; gap:12px; text-align:left; font:inherit; font-weight:700;
+        background:var(--field); border:2px solid var(--line); border-radius:12px;
+        padding:13px 14px; cursor:pointer; min-height:52px; width:100%; color:var(--ink); }
+      .opt .letter{ flex:0 0 auto; width:30px; height:30px; border-radius:50%; background:var(--line);
+        display:flex; align-items:center; justify-content:center; font-weight:800; font-size:.92rem; }
+      .opt:hover{ border-color:var(--teal); }
+      .opt.picked{ border-color:var(--teal); background:var(--teal-soft); }
+      .opt.picked .letter{ background:var(--teal); color:#fff; }
+      .opt:disabled{ cursor:default; opacity:1; }
+      .write-input{ width:100%; max-width:420px; font:inherit; font-size:1.08rem; font-weight:700;
+        padding:12px 14px; border:2px solid var(--line); border-radius:12px;
+        background:var(--field); color:var(--ink); }
+      .write-input:focus{ outline:3px solid var(--teal-soft); border-color:var(--teal); }
+      .write-input:disabled{ opacity:.75; }
+      .hint{ color:var(--ink-soft); font-size:.88rem; margin:7px 0 0; font-weight:600; }
+      .key-answer{ display:none; margin-top:8px; font-weight:800; color:var(--teal-dark);
+        background:var(--teal-soft); border-radius:8px; padding:6px 10px; font-size:.95rem; }
+      body.teacher-reveal .key-answer{ display:block; }
+      body.teacher-reveal .opt.is-answer{ border-color:var(--good); background:var(--good-bg); }
+
+      .gap-warning{ background:var(--warn-bg); border:2px solid var(--warn-line); color:var(--warn-ink);
+        border-radius:14px; padding:14px 16px; font-weight:700; margin:18px 0; }
+      .finish-zone{ text-align:center; margin:26px 0 6px; }
+      .finish-zone .btn{ max-width:440px; margin:0 auto; }
+      .finish-note{ color:var(--ink-soft); font-size:.92rem; margin-top:10px; }
+
+      /* ---------- results ---------- */
+      .result-hero{ background:var(--card); border:2px solid var(--line); border-radius:20px;
+        padding:26px 24px; text-align:center; box-shadow:var(--shadow); }
+      .result-hero .big{ font-family:"Baloo 2",sans-serif; font-size:3.4rem; font-weight:800;
+        color:var(--teal-dark); line-height:1; }
+      .result-hero .big small{ font-size:1.6rem; color:var(--ink-soft); }
+      .result-msg{ font-size:1.1rem; font-weight:700; margin:10px 0 4px; }
+      .send-status{ font-weight:700; color:var(--ink-soft); margin:8px 0 0; }
+      .part-scores{ display:grid; gap:10px; margin:20px 0; }
+      .ps-row{ background:var(--card); border:2px solid var(--line); border-radius:14px;
+        padding:12px 16px; display:flex; align-items:center; gap:14px; }
+      .ps-row .ps-name{ font-weight:800; flex:1; min-width:0; }
+      .ps-row .ps-bar{ flex:1.2; height:10px; background:var(--line); border-radius:99px; overflow:hidden; }
+      .ps-row .ps-bar i{ display:block; height:100%; background:var(--teal); }
+      .ps-row .ps-num{ font-family:"Baloo 2",sans-serif; font-weight:800; font-size:1.15rem;
+        min-width:58px; text-align:right; }
+      .review h2{ font-size:1.5rem; margin:26px 0 6px; }
+      .review-part{ font-family:"Baloo 2",sans-serif; font-size:1.2rem; margin:20px 0 4px; color:var(--teal-dark); }
+      .rq{ border:2px solid var(--line); border-radius:14px; padding:13px 15px; margin:10px 0; background:var(--card); }
+      .rq.ok{ border-color:var(--good); background:var(--good-bg); }
+      .rq.no{ border-color:var(--bad); background:var(--bad-bg); }
+      .rq .q-text{ margin-bottom:6px; }
+      .rq p{ margin:3px 0; font-size:.97rem; }
+      .rq .yours b{ font-weight:800; }
+      .rq .why{ color:var(--ink-soft); font-style:italic; }
+      .rq .mark{ float:right; font-family:"Baloo 2",sans-serif; font-weight:800; }
+      .rq.ok .mark{ color:var(--good); } .rq.no .mark{ color:var(--bad); }
+
+      /* ---------- teacher ---------- */
+      .site-foot{ text-align:center; margin-top:34px; }
+      .teacher-link{ background:none; border:0; font:inherit; font-size:.9rem; font-weight:700;
+        color:var(--ink-soft); cursor:pointer; text-decoration:underline; padding:10px; }
+      .teacher-panel{ background:var(--card); border:2.5px solid var(--orange); border-radius:20px;
+        padding:24px; margin:20px 0; box-shadow:var(--shadow); }
+      .teacher-panel h2{ font-size:1.5rem; color:var(--orange); margin-bottom:6px; }
+      .teacher-panel h3{ font-size:1.12rem; margin:18px 0 5px; color:var(--teal-dark); }
+      .teacher-panel ul,.teacher-panel ol{ margin:4px 0 4px 20px; padding:0; }
+      .teacher-panel li{ margin:3px 0; }
+      .teacher-panel p{ margin:5px 0; }
+      .tkey-part{ font-weight:800; margin:14px 0 4px; }
+      .tkey-item{ font-size:.95rem; margin:2px 0 2px 14px; color:var(--ink-soft); }
+      .tkey-item b{ color:var(--ink); }
+      .teacher-actions{ display:flex; gap:10px; flex-wrap:wrap; margin:14px 0 4px; }
+
+      @media (max-width:560px){
+        body{ font-size:16px; }
+        .hero h1{ font-size:1.65rem; }
+        .stats{ grid-template-columns:repeat(2,1fr); }
+        .part{ padding:16px 14px; }
+        .qb-timer{ font-size:1.3rem; }
+        .ps-row{ flex-wrap:wrap; }
+        .ps-row .ps-bar{ order:3; flex-basis:100%; }
+      }
+    </style>
+  </head>
+  <body>
+
+    <!-- ================= STICKY BAR (homework + results) ================= -->
+    <div class="quizbar hidden" id="quizbar">
+      <div class="quizbar-in">
+        <div class="qb-name"><span>Student</span><span id="qbName" style="color:var(--ink);font-size:1rem;font-weight:800"></span></div>
+        <div class="qb-progress">Answered <b id="qbAnswered">0</b> / 50</div>
+        <div class="qb-timer" id="qbTimer">25:00</div>
+      </div>
+      <div class="pbar"><i id="qbBar"></i></div>
+    </div>
+
+    <main class="wrap">
+
+      <!-- ================= INTRO / NAME GATE ================= -->
+      <section id="screenIntro">
+        <div class="hero">
+          <span class="unit-tag">UNIT 5 · GRAMMAR HOMEWORK · CLASS 6B</span>
+          <h1>Past Simple &amp; Present Perfect Homework</h1>
+          <p class="lede">This is your <b>homework</b> — do it carefully at home, in a quiet place, and take your time. Fifty questions about the two tenses from pages 56–57, all different from the class quiz. Look for the <b>time clue</b> in every sentence — it tells you which tense to use!</p>
+          <div class="stats">
+            <div class="stat"><b>50</b><span>questions</span></div>
+            <div class="stat"><b>100</b><span>points</span></div>
+            <div class="stat"><b>5</b><span>parts</span></div>
+            <div class="stat"><b>25</b><span>minutes</span></div>
+          </div>
+          <div class="name-field">
+            <label for="nameInput">Your full name</label>
+            <input id="nameInput" type="text" autocomplete="name" placeholder="e.g. Sok Dara" />
+            <p class="name-error hidden" id="nameError">Please write your FULL name — first name and family name.</p>
+            <p class="name-hint">Type your full name to start. The 25-minute timer starts when you begin, and your score is sent to your teacher at the end.</p>
+          </div>
+          <div class="howto">
+            <h2>How to answer</h2>
+            <p><b>Two kinds of questions:</b></p>
+            <p>👆 <b>TAP questions</b> — tap one answer.</p>
+            <p>✍️ <b>WRITE questions</b> — type <b>ONLY the verb form</b> (not the whole sentence). Spelling must be correct, but CAPITAL letters do not matter.</p>
+            <p>Every part has its own instruction box at the top — read it before you start the part.</p>
+          </div>
+          <ol class="parts-list">
+            <li><b>Part 1</b> — Choose the form (20 points)</li>
+            <li><b>Part 2</b> — Write the verb (20 points)</li>
+            <li><b>Part 3</b> — Since or for? (20 points)</li>
+            <li><b>Part 4</b> — Find the correct sentence (20 points)</li>
+            <li><b>Part 5</b> — Write the verb: mixed challenge (20 points)</li>
+          </ol>
+          <button class="btn primary" id="startBtn" disabled>Begin the homework →</button>
+        </div>
+        <div class="site-foot">
+          <button class="teacher-link" data-teacher-toggle type="button">Teacher</button>
+        </div>
+      </section>
+
+      <!-- ================= HOMEWORK ================= -->
+      <section id="screenQuiz" class="hidden">
+        <div id="partsHost"></div>
+        <div class="gap-warning hidden" id="gapWarning" role="alert"></div>
+        <div class="finish-zone">
+          <button class="btn primary" id="finishBtn" type="button">Finish &amp; mark my homework ✓</button>
+          <p class="finish-note">Check every part before you finish. When the timer reaches 0:00, the homework finishes by itself.</p>
+        </div>
+        <div class="site-foot">
+          <button class="teacher-link" data-teacher-toggle type="button">Teacher</button>
+        </div>
+      </section>
+
+      <!-- ================= RESULTS ================= -->
+      <section id="screenResult" class="hidden">
+        <div class="result-hero">
+          <h2 id="resultName">Well done!</h2>
+          <div class="big"><span id="resultScore">0</span><small> / 100</small></div>
+          <p class="result-msg" id="resultMsg"></p>
+          <p class="send-status" id="sendStatus"></p>
+        </div>
+        <div class="part-scores" id="partScores"></div>
+        <div class="review" id="reviewHost"></div>
+        <div class="finish-zone">
+          <button class="btn secondary" id="resetBtn" type="button">Reset attempt — next student</button>
+        </div>
+        <div class="site-foot">
+          <button class="teacher-link" data-teacher-toggle type="button">Teacher</button>
+        </div>
+      </section>
+
+      <!-- ================= TEACHER PANEL ================= -->
+      <section class="teacher-panel hidden" id="teacherPanel">
+        <h2>Teacher Panel</h2>
+        <p>Past Simple &amp; Present Perfect Homework · Power Up Level 6, Unit 5 (pp. 56–57) · Class 6B · 50 questions · 100 points · 25 minutes. Companion homework to the class quiz — all 50 exercises are new.</p>
+
+        <h3>Lesson Aim</h3>
+        <p>To consolidate, through independent homework, students' control of the past simple and present perfect — form, the finished-time vs. still-true distinction, and <i>since</i> / <i>for</i> — following the class quiz on the same grammar.</p>
+
+        <h3>Learning Objectives</h3>
+        <ul>
+          <li>Choose between past simple and present perfect using time clues (<i>yesterday, ago, last…</i> vs. <i>just, yet, never, ever, already, since, for</i>).</li>
+          <li>Produce correct forms: irregular past simple (<i>drank, fell, began, won, bought, met, got, left</i>) and <i>have/has</i> + past participle (<i>seen, been, eaten, written, ridden, dropped</i>).</li>
+          <li>Use <i>since</i> + start time and <i>for</i> + length of time accurately.</li>
+          <li>Spot common errors: <i>did/didn't</i> + past form, <i>have went</i>, present perfect with a finished time.</li>
+        </ul>
+
+        <h3>Desired Learner Outcomes</h3>
+        <ul>
+          <li>By the end of the homework, learners can score across all five parts with answers sent to the class sheet (tab: PastSimplePresentPerfectHW).</li>
+          <li>Learners can explain, from the review screen, why each corrected answer uses its tense ("Yesterday = finished → past simple").</li>
+          <li>Learners below 60 revisit the clue-word rule on p. 57 before the next lesson.</li>
+        </ul>
+
+        <h3>Running notes</h3>
+        <ol>
+          <li><b>Setting it:</b> Share the link and tell the class: "Type your full name, then tap Begin. The timer starts straight away — 25 minutes for 50 questions. Do it carefully at home, on your own."</li>
+          <li><b>Say:</b> "Two kinds of questions. TAP — tap one answer. WRITE — type only the verb form, not the whole sentence. Spelling must be correct; capital letters don't matter."</li>
+          <li><b>Suggested timing:</b> Part 1 ≈ 4 min · Part 2 ≈ 5 min · Part 3 ≈ 3 min · Part 4 ≈ 6 min · Part 5 ≈ 5 min · 2 min to check.</li>
+          <li><b>During:</b> The top bar shows the countdown and how many questions are answered — no live score is shown to students.</li>
+          <li><b>Finishing:</b> "Finish &amp; mark" warns about unanswered questions and jumps to the first gap. At 0:00 the homework auto-submits; blanks count as wrong.</li>
+          <li><b>After:</b> Scores land in the sheet tab <b>PastSimplePresentPerfectHW</b> (parts /20, total /100, time used). Walk through the review screen together next lesson — every question shows the correct answer and a one-line reason.</li>
+          <li><b>Next student:</b> Use "Reset attempt" on the results screen to return to the name gate.</li>
+        </ol>
+
+        <div class="teacher-actions">
+          <button class="btn secondary small" id="revealBtn" type="button">Reveal answers on the homework</button>
+          <button class="btn secondary small" data-teacher-toggle type="button">Close teacher panel</button>
+        </div>
+        <p class="hint">"Reveal answers" highlights the correct option on every TAP question and shows the key under every WRITE question — use it on the projector after marking, or before setting the homework to preview.</p>
+
+        <h3>Full answer key</h3>
+        <div id="teacherKey"></div>
+      </section>
+
+    </main>
+
+    <script>
+      "use strict";
+      var SHEET_URL = "https://script.google.com/macros/s/AKfycbyx3nNvy7fg6baLudphl9t4BuWd1xSUf9QtqKI-7cRhIoCwHs8I7oplQRMXP4Kkvno/exec";
+      var TEST_NAME = "PastSimplePresentPerfectHW";
+      var TOTAL_SECONDS = 25 * 60;
+      var LETTERS = ["A", "B", "C"];
+
+      var PARTS = [
+        {
+          title: "Part 1 · Choose the form", type: "tap",
+          instruction: "Choose the correct verb form. Read the whole sentence and find the <b>time clue</b>: <b>yesterday / last week / ago / in 2019</b> → PAST SIMPLE. <b>just / yet / never / ever / since / for / already</b> → PRESENT PERFECT. Tap one answer.",
+          items: [
+            { q: "My dad ___ a new car last month.", opts: ["have bought", "bought", "has buy"], answer: 1, why: "Last month = finished → past simple." },
+            { q: "We ___ never ___ snow.", opts: ["did … saw", "have … seen", "has … seen"], answer: 1, why: "Never, about your life → have + past participle." },
+            { q: "The cat ___ all the milk ten minutes ago.", opts: ["drank", "has drunk", "have drunk"], answer: 0, why: "Ago → past simple (drink → drank)." },
+            { q: "She ___ in this town since she was born.", opts: ["lives", "live", "has lived"], answer: 2, why: "Since she was born → has lived." },
+            { q: "___ the teacher ___ the marks yet?", opts: ["Has … gave", "Has … given", "Did … gives"], answer: 1, why: "Yet in a question → Has + past participle." },
+            { q: "They ___ to the beach last weekend.", opts: ["went", "have gone", "has went"], answer: 0, why: "Last weekend → past simple (go → went)." },
+            { q: "I ___ just ___ my lunch.", opts: ["did … finished", "have … finished", "has … finish"], answer: 1, why: "Just → have just + past participle." },
+            { q: "Our team ___ the match 3–0 in 2024.", opts: ["has won", "have win", "won"], answer: 2, why: "In 2024 = finished → won." },
+            { q: "He ___ already ___ his homework.", opts: ["did … done", "has … done", "have … did"], answer: 1, why: "Already → has already done." },
+            { q: "The bus ___ five minutes ago.", opts: ["has left", "left", "have left"], answer: 1, why: "Ago → past simple." }
+          ]
+        },
+        {
+          title: "Part 2 · Write the verb", type: "write",
+          instruction: "Write the verb in brackets in the correct form. Write the <b>FULL verb form</b> — for example 'went' or 'has finished'. Do <b>NOT</b> write the whole sentence. Spelling must be correct.",
+          items: [
+            { q: "We ___ (watch) a great film last night.", accept: ["watched"], why: "Last night → past simple." },
+            { q: "I ___ (not see) Tom since Monday.", accept: ["haven't seen", "have not seen"], why: "Since Monday + not → haven't seen." },
+            { q: "She ___ (win) a prize yesterday.", accept: ["won"], why: "Yesterday → win → won." },
+            { q: "They ___ (just arrive) at the airport.", accept: ["have just arrived"], why: "Just → have just arrived." },
+            { q: "My brother ___ (fall) off his bike yesterday.", accept: ["fell"], why: "Yesterday → fall → fell." },
+            { q: "I ___ (never try) durian.", accept: ["have never tried"], why: "Never → have never tried." },
+            { q: "The film ___ (begin) two hours ago.", accept: ["began"], why: "Ago → begin → began." },
+            { q: "He ___ (be) a teacher for ten years.", accept: ["has been"], why: "For ten years → has been." },
+            { q: "We ___ (buy) this house in 2015.", accept: ["bought"], why: "In 2015 → buy → bought." },
+            { q: "Anna ___ (not finish) her book yet.", accept: ["hasn't finished", "has not finished"], why: "Yet + not → hasn't finished." }
+          ]
+        },
+        {
+          title: "Part 3 · Since or for?", type: "tap",
+          instruction: "Choose <b>SINCE</b> or <b>FOR</b>. <b>SINCE</b> + the start time (since Monday, since 2021). <b>FOR</b> + how long (for two weeks, for ten minutes). Tap one answer.",
+          items: [
+            { q: "I haven't eaten ___ last Friday.", opts: ["since", "for"], answer: 0, why: "Since + start time." },
+            { q: "She has slept ___ two hours.", opts: ["since", "for"], answer: 1, why: "For + how long." },
+            { q: "He has played football ___ he was ten.", opts: ["since", "for"], answer: 0, why: "Since + start time." },
+            { q: "We have waited ___ a month.", opts: ["since", "for"], answer: 1, why: "For + how long." },
+            { q: "It hasn't rained ___ Christmas.", opts: ["since", "for"], answer: 0, why: "Since + start time." },
+            { q: "They have lived in the city ___ fifteen years.", opts: ["since", "for"], answer: 1, why: "For + how long." },
+            { q: "The baby has cried ___ 9 o'clock.", opts: ["since", "for"], answer: 0, why: "Since + start time." },
+            { q: "The course has lasted ___ five days.", opts: ["since", "for"], answer: 1, why: "For + how long." },
+            { q: "She has been my friend ___ we met at school.", opts: ["since", "for"], answer: 0, why: "Since + start time." },
+            { q: "He has driven ___ six hours.", opts: ["since", "for"], answer: 1, why: "For + how long." }
+          ]
+        },
+        {
+          title: "Part 4 · Find the correct sentence", type: "tap",
+          instruction: "Each question has three sentences. Only <b>ONE</b> is correct. Read all three carefully, then tap the correct sentence.",
+          items: [
+            { q: "Which sentence is correct?", opts: ["I have went to the market.", "I have gone to the market.", "I has gone to the market."], answer: 1, why: "Have + past participle: gone." },
+            { q: "Which sentence is correct?", opts: ["Did she saw the doctor yesterday?", "Did she see the doctor yesterday?", "Has she see the doctor yesterday?"], answer: 1, why: "After Did, use the base verb: see." },
+            { q: "Which sentence is correct?", opts: ["We has eaten breakfast.", "We have ate breakfast.", "We have eaten breakfast."], answer: 2, why: "We → have. Eat → eaten." },
+            { q: "Which sentence is correct?", opts: ["He worked here since 2019.", "He has worked here since 2019.", "He have worked here since 2019."], answer: 1, why: "Since 2019, still working → has worked." },
+            { q: "Which sentence is correct?", opts: ["They didn't went home early.", "They not went home early.", "They didn't go home early."], answer: 2, why: "After didn't, use the base verb: go." },
+            { q: "Which sentence is correct?", opts: ["Has he ever ridden a bike?", "Has he ever rode a bike?", "Have he ever ridden a bike?"], answer: 0, why: "Has he ever + past participle: ridden." },
+            { q: "Which sentence is correct?", opts: ["She bought a dress yesterday.", "She has bought a dress yesterday.", "She have bought a dress yesterday."], answer: 0, why: "Yesterday → past simple, no has." },
+            { q: "Which sentence is correct?", opts: ["The rain have stopped an hour ago.", "The rain stopped an hour ago.", "The rain has stopped an hour ago."], answer: 1, why: "Ago → past simple: stopped." },
+            { q: "Which sentence is correct?", opts: ["I haven't saw my cousin yet.", "I hasn't seen my cousin yet.", "I haven't seen my cousin yet."], answer: 2, why: "Haven't + past participle: seen." },
+            { q: "Which sentence is correct?", opts: ["He has wrote a letter this week.", "He has written a letter this week.", "He have written a letter this week."], answer: 1, why: "Has + past participle: written." }
+          ]
+        },
+        {
+          title: "Part 5 · Write the verb — mixed challenge", type: "write",
+          instruction: "Write the verb in brackets in the correct form — past simple or present perfect. Write the <b>FULL verb form only</b> — for example 'lost' or 'has never ridden'. Spelling must be correct.",
+          items: [
+            { q: "Watch out! You ___ (just drop) your phone!", accept: ["have just dropped"], why: "Just → have just dropped." },
+            { q: "We ___ (meet) our teacher at the market last Sunday.", accept: ["met"], why: "Last Sunday → meet → met." },
+            { q: "She ___ (never eat) snails.", accept: ["has never eaten"], why: "Never → has never eaten." },
+            { q: "The children ___ (play) in the rain yesterday afternoon.", accept: ["played"], why: "Yesterday afternoon → past simple." },
+            { q: "I ___ (already read) this story three times.", accept: ["have already read"], why: "Already → have already read." },
+            { q: "Tom ___ (not come) to class yet.", accept: ["hasn't come", "has not come"], why: "Yet + not → hasn't come." },
+            { q: "My grandparents ___ (get) married in 1990.", accept: ["got"], why: "In 1990 → get → got." },
+            { q: "He ___ (have) this watch since his birthday.", accept: ["has had"], why: "Since his birthday → has had." },
+            { q: "The train ___ (leave) the station a minute ago.", accept: ["left"], why: "Ago → leave → left." },
+            { q: "They ___ (be) married for twelve years.", accept: ["have been"], why: "For twelve years → have been." }
+          ]
+        }
+      ];
+
+      var state = { name: "", started: false, submitted: false, sent: false, seconds: TOTAL_SECONDS, timer: null, picked: {}, typed: {} };
+      function $(s) { return document.querySelector(s); }
+      function $$(s) { return Array.prototype.slice.call(document.querySelectorAll(s)); }
+      function esc(s) { return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;"); }
+      function norm(s) { return String(s || "").replace(/[‘’]/g, "'").trim().toLowerCase().replace(/\s+/g, " "); }
+      function fmt(sec) { sec = Math.max(0, sec); var m = Math.floor(sec / 60), s = sec % 60; return (m < 10 ? "0" : "") + m + ":" + (s < 10 ? "0" : "") + s; }
+      function correctAnswerText(part, item) { return part.type === "tap" ? item.opts[item.answer] : item.accept[0]; }
+      function isCorrect(p, i) {
+        var part = PARTS[p], item = part.items[i];
+        if (part.type === "tap") return state.picked[p + "-" + i] === item.answer;
+        var v = norm(state.typed[p + "-" + i]);
+        if (!v) return false;
+        return item.accept.some(function (a) { return norm(a) === v; });
+      }
+      function isAnswered(p, i) {
+        var part = PARTS[p];
+        if (part.type === "tap") return state.picked[p + "-" + i] !== undefined;
+        return norm(state.typed[p + "-" + i]) !== "";
+      }
+      function answeredCount() { var n = 0; PARTS.forEach(function (pt, p) { pt.items.forEach(function (_, i) { if (isAnswered(p, i)) n++; }); }); return n; }
+
+      /* ---------- render homework ---------- */
+      function renderQuiz() {
+        var host = $("#partsHost"), html = "";
+        PARTS.forEach(function (part, p) {
+          html += '<section class="part" id="part-' + p + '"><div class="part-head"><h2>' + esc(part.title) + '</h2><span class="part-pts">20 points · 2 each</span></div>';
+          html += '<p class="instruction">' + part.instruction + '</p>';
+          part.items.forEach(function (item, i) {
+            var key = p + "-" + i;
+            html += '<div class="q" id="q-' + key + '"><p class="q-text"><span class="q-num">' + (i + 1) + '</span>' + esc(item.q) + '</p>';
+            if (part.type === "tap") {
+              html += '<div class="opts" role="group">';
+              item.opts.forEach(function (opt, o) {
+                html += '<button type="button" class="opt' + (o === item.answer ? " is-answer" : "") + '" data-pick="' + key + '" data-opt="' + o + '"><span class="letter">' + LETTERS[o] + '</span><span>' + esc(opt) + '</span></button>';
+              });
+              html += '</div>';
+            } else {
+              html += '<input type="text" class="write-input" data-write="' + key + '" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Type the verb form here" aria-label="Your answer for question ' + (i + 1) + ' of ' + esc(part.title) + '" />';
+              html += '<p class="hint">Write the full verb form only.</p>';
+              html += '<p class="key-answer">Answer: ' + esc(item.accept[0]) + '</p>';
+            }
+            html += '</div>';
+          });
+          html += '</section>';
+        });
+        host.innerHTML = html;
+        $$("[data-pick]").forEach(function (btn) {
+          btn.addEventListener("click", function () {
+            if (state.submitted) return;
+            var key = btn.getAttribute("data-pick");
+            state.picked[key] = parseInt(btn.getAttribute("data-opt"), 10);
+            $$('[data-pick="' + key + '"]').forEach(function (b) { b.classList.toggle("picked", b === btn); });
+            var q = $("#q-" + key); if (q) q.classList.remove("gap");
+            updateProgress();
+          });
+        });
+        $$("[data-write]").forEach(function (inp) {
+          inp.addEventListener("input", function () {
+            state.typed[inp.getAttribute("data-write")] = inp.value;
+            var q = inp.closest(".q"); if (q && norm(inp.value)) q.classList.remove("gap");
+            updateProgress();
+          });
+        });
+      }
+
+      function updateProgress() {
+        var n = answeredCount();
+        $("#qbAnswered").textContent = n;
+        $("#qbBar").style.width = (n / 50 * 100) + "%";
+      }
+
+      /* ---------- timer ---------- */
+      function tick() {
+        state.seconds--;
+        var t = $("#qbTimer");
+        t.textContent = fmt(state.seconds);
+        t.classList.toggle("low", state.seconds <= 120);
+        if (state.seconds <= 0) { stopTimer(); submitQuiz(true); }
+      }
+      function stopTimer() { if (state.timer) { clearInterval(state.timer); state.timer = null; } }
+
+      /* ---------- flow ---------- */
+      function nameValid() { return $("#nameInput").value.trim().split(/\s+/).filter(Boolean).length >= 2; }
+      $("#nameInput").addEventListener("input", function () {
+        $("#startBtn").disabled = !nameValid();
+        if (nameValid()) $("#nameError").classList.add("hidden");
+      });
+      $("#startBtn").addEventListener("click", function () {
+        if (!nameValid()) { $("#nameError").classList.remove("hidden"); $("#nameInput").focus(); return; }
+        state.name = $("#nameInput").value.trim().replace(/\s+/g, " ");
+        state.started = true;
+        $("#qbName").textContent = state.name;
+        $("#screenIntro").classList.add("hidden");
+        $("#screenResult").classList.add("hidden");
+        $("#screenQuiz").classList.remove("hidden");
+        $("#quizbar").classList.remove("hidden");
+        $("#qbTimer").textContent = fmt(state.seconds);
+        updateProgress();
+        stopTimer();
+        state.timer = setInterval(tick, 1000);
+        window.scrollTo(0, 0);
+      });
+
+      $("#finishBtn").addEventListener("click", function () {
+        if (state.submitted) return;
+        var gaps = [];
+        PARTS.forEach(function (pt, p) { pt.items.forEach(function (_, i) { if (!isAnswered(p, i)) gaps.push(p + "-" + i); }); });
+        if (gaps.length) {
+          $$(".q.gap").forEach(function (q) { q.classList.remove("gap"); });
+          gaps.forEach(function (k) { var q = $("#q-" + k); if (q) q.classList.add("gap"); });
+          var w = $("#gapWarning");
+          w.innerHTML = "⚠️ You still have <b>" + gaps.length + " unanswered question" + (gaps.length === 1 ? "" : "s") + "</b>. The first one is highlighted below — answer " + (gaps.length === 1 ? "it" : "them all") + ", then tap Finish again.";
+          w.classList.remove("hidden");
+          var first = $("#q-" + gaps[0]);
+          if (first) first.scrollIntoView({ behavior: "smooth", block: "center" });
+          return;
+        }
+        $("#gapWarning").classList.add("hidden");
+        submitQuiz(false);
+      });
+
+      function submitQuiz(auto) {
+        if (state.submitted) return;
+        state.submitted = true;
+        stopTimer();
+        var per = [], correct = 0;
+        PARTS.forEach(function (pt, p) {
+          var c = 0;
+          pt.items.forEach(function (_, i) { if (isCorrect(p, i)) c++; });
+          per.push(c * 2); correct += c;
+        });
+        var score = per.reduce(function (a, b) { return a + b; }, 0);
+        $$("[data-pick]").forEach(function (b) { b.disabled = true; });
+        $$("[data-write]").forEach(function (i) { i.disabled = true; });
+
+        $("#resultName").textContent = (auto ? "Time's up, " : "Well done, ") + state.name + "!";
+        $("#resultScore").textContent = score;
+        $("#resultMsg").textContent =
+          score >= 90 ? "Excellent! You really know these two tenses. 🌟" :
+          score >= 70 ? "Great work! Check the red answers below to fix the last mistakes." :
+          score >= 50 ? "Good try! Read the green answers and the reasons below — they will help you." :
+          "Keep going! Read every answer and reason below with your teacher, then try the clue words again.";
+        var ps = "";
+        PARTS.forEach(function (pt, p) {
+          ps += '<div class="ps-row"><span class="ps-name">' + esc(pt.title) + '</span><span class="ps-bar"><i style="width:' + (per[p] / 20 * 100) + '%"></i></span><span class="ps-num">' + per[p] + ' / 20</span></div>';
+        });
+        $("#partScores").innerHTML = ps;
+
+        var rev = "<h2>Check your answers</h2>";
+        PARTS.forEach(function (pt, p) {
+          rev += '<div class="review-part">' + esc(pt.title) + ' — ' + per[p] + ' / 20</div>';
+          pt.items.forEach(function (item, i) {
+            var ok = isCorrect(p, i);
+            var yours = pt.type === "tap"
+              ? (state.picked[p + "-" + i] === undefined ? "(no answer)" : item.opts[state.picked[p + "-" + i]])
+              : (norm(state.typed[p + "-" + i]) ? state.typed[p + "-" + i].trim() : "(no answer)");
+            rev += '<div class="rq ' + (ok ? "ok" : "no") + '"><span class="mark">' + (ok ? "✓ +2" : "✗ 0") + '</span>' +
+              '<p class="q-text"><span class="q-num">' + (i + 1) + '</span>' + esc(item.q) + '</p>' +
+              '<p class="yours">Your answer: <b>' + esc(yours) + '</b></p>' +
+              (ok ? "" : '<p>Correct answer: <b>' + esc(correctAnswerText(pt, item)) + '</b></p>') +
+              '<p class="why">' + esc(item.why) + '</p></div>';
+          });
+        });
+        $("#reviewHost").innerHTML = rev;
+
+        $("#screenQuiz").classList.add("hidden");
+        $("#screenResult").classList.remove("hidden");
+        window.scrollTo(0, 0);
+        if (state.name) { sendScore(per, score, correct); }
+        else { $("#sendStatus").textContent = "Teacher preview — no score was sent."; }
+      }
+
+      function sendScore(per, score, correct) {
+        if (state.sent) return;
+        state.sent = true;
+        var status = $("#sendStatus");
+        status.textContent = "Sending your score to your teacher…";
+        var payload = {
+          kind: "quiz", test: TEST_NAME, name: state.name,
+          part1: per[0], part2: per[1], part3: per[2], part4: per[3], part5: per[4],
+          score: score, total: score, correct: correct,
+          timeUsed: fmt(TOTAL_SECONDS - state.seconds)
+        };
+        fetch(SHEET_URL, { method: "POST", mode: "no-cors", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify(payload) })
+          .then(function () { status.textContent = "✓ Your score was sent to your teacher."; })
+          .catch(function () { status.textContent = "Your score could not be sent. Please tell your teacher your score: " + score + " / 100."; });
+      }
+
+      $("#resetBtn").addEventListener("click", function () { window.location.reload(); });
+
+      /* ---------- teacher ---------- */
+      function renderTeacherKey() {
+        var html = "";
+        PARTS.forEach(function (pt, p) {
+          html += '<p class="tkey-part">' + esc(pt.title) + '</p>';
+          pt.items.forEach(function (item, i) {
+            html += '<p class="tkey-item">' + (i + 1) + '. ' + esc(item.q) + ' → <b>' + esc(correctAnswerText(pt, item)) + '</b> — ' + esc(item.why) + '</p>';
+          });
+        });
+        $("#teacherKey").innerHTML = html;
+      }
+      $$("[data-teacher-toggle]").forEach(function (btn) {
+        btn.addEventListener("click", function () {
+          var panel = $("#teacherPanel");
+          var opening = panel.classList.contains("hidden");
+          panel.classList.toggle("hidden");
+          if (opening) panel.scrollIntoView({ behavior: "smooth", block: "start" });
+        });
+      });
+      $("#revealBtn").addEventListener("click", function () {
+        var on = document.body.classList.toggle("teacher-reveal");
+        this.textContent = on ? "Hide revealed answers" : "Reveal answers on the homework";
+        if (on) {
+          $("#teacherPanel").classList.add("hidden");
+          if (!state.started) {
+            /* preview from the intro: show the homework for the teacher */
+            $("#screenIntro").classList.add("hidden");
+            $("#screenQuiz").classList.remove("hidden");
+            $("#quizbar").classList.remove("hidden");
+            $("#qbName").textContent = "Teacher preview";
+          }
+          window.scrollTo(0, 0);
+        }
+      });
+
+      renderQuiz();
+      renderTeacherKey();
+    </script>
+  </body>
+</html>
